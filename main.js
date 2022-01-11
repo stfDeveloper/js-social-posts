@@ -61,7 +61,7 @@ const posts = [
   },
 ];
 
-
+ 
 // codice HTML con relativa funzione che genera post 
 function newPost(posts) {
   document.querySelector(".posts-list").innerHTML+= `
