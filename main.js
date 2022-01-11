@@ -97,8 +97,25 @@ function newPost(posts) {
 </div>
 
 </div>
-    `;
+    `
 }
 for(let i = 0; i < posts.length; i++){
     newPost(posts[i])
 }
+
+let like = document.querySelectorAll(".like-button");
+let likeIcon = document.querySelectorAll(".like-button__icon");
+let likeLabel = document.querySelectorAll(".like-button__label");
+let postLikesCounter = [];
+
+for(let i = 0; i < like.length; i++){
+    like[i].addEventListener("click", function(){
+        let postLikes = (posts.likes)
+        if(likeIcon[i].classList.contains("like-button--liked")){
+            likeIcon[i].classList.remove("like-button--liked");
+            likeLabel[i].classList.remove("like-button--liked");
+        }else{
+            likeIcon[i].classList.add("like-button--liked");
+            likeLabel[i].classList.add("like-button--liked");
+        }
+})}
