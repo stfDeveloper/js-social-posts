@@ -104,18 +104,24 @@ for(let i = 0; i < posts.length; i++){
 }
 
 let like = document.querySelectorAll(".like-button");
-let likeIcon = document.querySelectorAll(".like-button__icon");
-let likeLabel = document.querySelectorAll(".like-button__label");
-let postLikesCounter = [];
+let likeCounter = document.querySelectorAll(".js-likes-counter");
+
 
 for(let i = 0; i < like.length; i++){
-    like[i].addEventListener("click", function(){
-        let postLikes = (posts.likes)
-        if(likeIcon[i].classList.contains("like-button--liked")){
-            likeIcon[i].classList.remove("like-button--liked");
-            likeLabel[i].classList.remove("like-button--liked");
-        }else{
-            likeIcon[i].classList.add("like-button--liked");
-            likeLabel[i].classList.add("like-button--liked");
-        }
-})}
+  const buttonLikes = like[i];
+  like[i].addEventListener("click", function(e){
+    e.preventDefault();
+
+    if (!buttonLikes.classList.contains("like-button--liked")) {
+      buttonLikes.classList.add("like-button--liked")
+      const counter = likeCounter[i];
+      const number =  parseInt (counter.innerHTML);
+      counter.innerHTML= number + 1;
+    }else{
+      buttonLikes.classList.remove("like-button--liked")
+      const counter = likeCounter[i];
+      const number =  parseInt (counter.innerHTML);
+      counter.innerHTML= number - 1;
+    }
+  });
+}
